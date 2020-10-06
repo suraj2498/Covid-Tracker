@@ -2,20 +2,27 @@ import axios from 'axios';
 
 const url = "https://disease.sh/v3/covid-19/countries/USA";
 
-export const fetchData = async () => {
+export const fetchData = async (state) => {
+
     try {
-        const { data: { cases, recovered, deaths, updated } } = await axios.get(url);
-        // const { data } = await axios.get(url);
-        // console.log(data);
-
-        const modifiedData = {
-            cases,
-            recovered,
-            deaths,
-            updated
+        if(state){
+            const { data } = await axios.get(`https://disease.sh/v3/covid-19/states/${state}?yesterday=true&allowNull=true`);
+            const reas= await axios.get(`https://disease.sh/v3/covid-19/states/${state}?yesterday=true&allowNull=true`);
+            console.log(reas);
+            return data;
         }
-        return modifiedData;
-
+        else {
+            const { data: { cases, recovered, deaths, updated } } = await axios.get(url);
+            // const { data } = await axios.get(url);
+            // console.log(data);
+            const modifiedData = {
+                cases,
+                recovered,
+                deaths,
+                updated
+            }
+            return modifiedData;
+        }
     } catch (err) {
         
     }

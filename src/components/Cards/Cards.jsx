@@ -6,7 +6,8 @@ import cx from 'classnames';
 import styles from './Cards.module.css';
 
 
-const Cards = ({ data: {cases, recovered, deaths, updated} }) => {
+const Cards = ({ data: {cases, recovered, deaths, updated}, state }) => {
+
     return (
         <div className={styles.container}>
             <Grid container justify="center">
@@ -21,7 +22,7 @@ const Cards = ({ data: {cases, recovered, deaths, updated} }) => {
                                 separator=","
                             />}
                         </Typography>
-                        <Typography color="textSecondary">DATE</Typography>
+                        <Typography color="textSecondary">Last Updated</Typography>
                         <Typography color="textSecondary">{new Date(updated).toDateString()}</Typography>
                         <Typography variant="body2">Number of active cases of Covid-19</Typography>
                     </CardContent>
@@ -38,7 +39,7 @@ const Cards = ({ data: {cases, recovered, deaths, updated} }) => {
                                 separator=","
                             />}
                         </Typography>
-                        <Typography color="textSecondary">DATE</Typography>
+                        <Typography color="textSecondary">Last Updated</Typography>
                         <Typography color="textSecondary">{new Date(updated).toDateString()}</Typography>
                         <Typography variant="body2">Number of recoveries of Covid-19</Typography>
                     </CardContent>
@@ -55,7 +56,7 @@ const Cards = ({ data: {cases, recovered, deaths, updated} }) => {
                                 separator=","
                             />}
                         </Typography>
-                        <Typography color="textSecondary">DATE</Typography>
+                        <Typography color="textSecondary">Last Updated</Typography>
                         <Typography color="textSecondary">{new Date(updated).toDateString()}</Typography>
                         <Typography variant="body2">Number of deaths from Covid-19</Typography>
                     </CardContent>

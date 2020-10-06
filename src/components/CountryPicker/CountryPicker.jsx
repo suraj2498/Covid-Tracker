@@ -15,13 +15,11 @@ function CountryPicker({ handleStateChange }) {
 
         fetchAPIStates();
     }, [setStates]);
-
-    console.log(states);
-
+    
     return (
         <FormControl className={styles.formControl}>
             <NativeSelect defaultValue="" onChange={(e) => {handleStateChange(e.target.value)}}>
-                <option value="All States"> All States</option>
+                <option value=""> All States</option>
                 {states.map((state, i) => <option key={i} value={state}>{state}</option>)}
             </NativeSelect>
         </FormControl>
